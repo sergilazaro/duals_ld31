@@ -242,6 +242,14 @@ public class Board : MonoBehaviour
 		ExecuteDelayedAction(0.5f, () => { InitialFadeIn(); });
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			UnityEngine.Application.Quit();
+		}
+	}
+
 	public void LoadFirstLevel()
 	{
 		this.audio.PlayOneShot(buttonClip);
