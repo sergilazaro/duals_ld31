@@ -39,7 +39,7 @@ public class MouseRotate : MonoBehaviour
 	{
 		if (target)
 		{
-			if (Input.GetMouseButton(2))
+			if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
 			{
 				velocityX += xSpeed * Input.GetAxis("Mouse X") * 0.02f;
 				velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
