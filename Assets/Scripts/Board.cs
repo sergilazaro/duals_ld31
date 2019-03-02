@@ -252,7 +252,7 @@ public class Board : MonoBehaviour
 
 	public void LoadFirstLevel()
 	{
-		this.audio.PlayOneShot(buttonClip);
+		GetComponent<AudioSource>().PlayOneShot(buttonClip);
 
 		TweenManager.instance.ExecuteDelayedAction(0.5f,
 			() =>
@@ -855,17 +855,17 @@ public class Board : MonoBehaviour
 
 				if (IsTileButton(newGoal.i, newGoal.j))
 				{
-					this.audio.PlayOneShot(buttonClip);
+					GetComponent<AudioSource>().PlayOneShot(buttonClip);
 					ChangeColorTo(CharToColor(GetTileChar(newGoal.i, newGoal.j)));
 				}
 				else if (IsTileExit(newGoal.i, newGoal.j))
 				{
-					this.audio.PlayOneShot(buttonClip);
+					GetComponent<AudioSource>().PlayOneShot(buttonClip);
 					LoadNewLevel();
 				}
 				else
 				{
-					this.audio.PlayOneShot(stepClip);
+					GetComponent<AudioSource>().PlayOneShot(stepClip);
 				}
 
 				StartNewPlayerJump();
@@ -952,8 +952,8 @@ public class Board : MonoBehaviour
 		{
 			if (IsTileWalkable(tileX, tileY))
 			{
-				tiles[tileX, tileY].transform.GetChild(1).particleSystem.Play();
-				this.audio.PlayOneShot(selectClip, 0.5f);
+				tiles[tileX, tileY].transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+				GetComponent<AudioSource>().PlayOneShot(selectClip, 0.5f);
 
 				bool moved = MoveToTile(tileX, tileY);
 			}
